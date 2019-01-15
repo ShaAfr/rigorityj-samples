@@ -19,7 +19,7 @@ public class PredictableCryptographicKeyCorrected {
         keyBytes = Arrays.copyOf(keyBytes,16);
         SecretKeySpec keySpec = new SecretKeySpec(keyBytes, "AES");
 
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         cipher.init(Cipher.ENCRYPT_MODE, keySpec);
         String encrypt = Base64.getEncoder().encodeToString(cipher.doFinal(originalString.getBytes("UTF-8")));
         System.out.println(encrypt);
