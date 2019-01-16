@@ -6,17 +6,17 @@ import java.util.Map;
 
 public class PredictableSeedsABHCase2 {
     public static void main (String [] args){
-        Map<String,Long> hm = new HashMap<String, Long>();
-        hm.put("aaa", new Long(100));
-        hm.put("bbb", new Long(200));
-        hm.put("ccc", new Long(300));
-        hm.put("ddd", new Long(400));
+        Map<String,Byte> hm = new HashMap<String, Byte>();
+        hm.put("aaa", new Byte((byte) 100));
+        hm.put("bbb", new Byte((byte) 200));
+        hm.put("ccc", new Byte((byte) 300));
+        hm.put("ddd", new Byte((byte) 400));
 
-        long l = hm.get("aaa");
-
+        byte b = hm.get("aaa");
+        byte [] seed = {b,b};
         SecureRandom sr = new SecureRandom();
 
-        sr.setSeed(l);
+        sr.setSeed(seed);
         int v = sr.nextInt();
         System.out.println(v);
     }
