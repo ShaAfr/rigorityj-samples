@@ -8,6 +8,7 @@ import javax.crypto.spec.SecretKeySpec;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
 
 public class PredictableCryptographicKeyABSCase1 {
     Crypto crypto;
@@ -46,6 +47,7 @@ class Crypto {
         }
         byte[] keyBytes = key.getBytes("UTF-8");
         byte [] txtBytes = txt.getBytes();
+        keyBytes = Arrays.copyOf(keyBytes,16);
 
         SecretKeySpec keySpec = new SecretKeySpec(keyBytes,algo);
         cipher.init(Cipher.ENCRYPT_MODE,keySpec);

@@ -2,6 +2,7 @@ package org.sharmin.samples.predictablepbepassword;
 
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.PBEParameterSpec;
+import java.security.SecureRandom;
 
 public class PredictablePBEPasswordBBCase1 {
     private PBEKeySpec pbeKeySpec = null;
@@ -12,7 +13,8 @@ public class PredictablePBEPasswordBBCase1 {
         ckp.key();
     }
     public void key() {
-        pbeKeySpec = new PBEKeySpec("saagar".toCharArray());
+        String defaultKey = "saagar";
+        pbeKeySpec = new PBEKeySpec(defaultKey.toCharArray());
     }
 
 }

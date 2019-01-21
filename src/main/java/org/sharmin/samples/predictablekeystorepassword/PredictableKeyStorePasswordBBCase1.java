@@ -5,6 +5,7 @@ import java.net.URL;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 
 public class PredictableKeyStorePasswordBBCase1 {
@@ -19,7 +20,8 @@ public class PredictableKeyStorePasswordBBCase1 {
         String type = "JKS";
         KeyStore ks = KeyStore.getInstance(type);
         cacerts = new URL("https://www.google.com");
-        ks.load(cacerts.openStream(), "changeit".toCharArray());
+        String defaultKey = "changeit";
+        ks.load(cacerts.openStream(), defaultKey.toCharArray());
     }
 
 

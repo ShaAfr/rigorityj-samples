@@ -4,6 +4,7 @@ import org.sharmin.samples.predictablekeystorepassword.PredictableKeyStorePasswo
 
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.PBEParameterSpec;
+import java.security.SecureRandom;
 
 public class PredictablePBEPasswordABICase2 {
     private PBEKeySpec pbeKeySpec = null;

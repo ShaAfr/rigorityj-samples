@@ -2,6 +2,7 @@ package org.sharmin.samples.predictablecryptographickey;
 
 import javax.crypto.spec.SecretKeySpec;
 import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,6 +18,7 @@ public class PredictableCryptographicKeyABHCase2 {
         String key = hm.get("aaa");
 
         byte [] keyBytes = key.getBytes();
+        keyBytes = Arrays.copyOf(keyBytes,16);
         SecretKeySpec keySpec = new SecretKeySpec(keyBytes, "AES");
     }
 }

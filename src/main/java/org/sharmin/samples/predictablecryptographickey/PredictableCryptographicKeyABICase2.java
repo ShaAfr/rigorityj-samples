@@ -1,6 +1,8 @@
 package org.sharmin.samples.predictablecryptographickey;
 
 import javax.crypto.spec.SecretKeySpec;
+import java.security.SecureRandom;
+import java.util.Arrays;
 
 public class PredictableCryptographicKeyABICase2 {
     public static final String DEFAULT_ENCRYPT_KEY = "defaultkey";
@@ -21,6 +23,7 @@ public class PredictableCryptographicKeyABICase2 {
 
     private static void go() {
         byte[] keyBytes = encryptKey.toString().getBytes();
+        keyBytes = Arrays.copyOf(keyBytes,16);
         SecretKeySpec keySpec = new SecretKeySpec(keyBytes, "AES");
     }
 }
