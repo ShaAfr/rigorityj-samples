@@ -1,3 +1,4 @@
+/*
 package org.sharmin.samples.brokenhash;
 
 import java.security.MessageDigest;
@@ -21,3 +22,4 @@ public class BrokenHashABHCase4 {
         System.out.println(md.digest());
     }
 }
+*/

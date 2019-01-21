@@ -1,3 +1,4 @@
+/*
 package org.sharmin.samples.http;
 
 import java.net.URL;
@@ -18,3 +19,4 @@ public class HttpProtocolABHCase2 {
         System.out.println(new URL(url));
     }
 }
+*/

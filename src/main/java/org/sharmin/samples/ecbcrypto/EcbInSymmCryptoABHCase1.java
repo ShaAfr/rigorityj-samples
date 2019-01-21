@@ -1,3 +1,4 @@
+/*
 package org.sharmin.samples.ecbcrypto;
 
 import javax.crypto.Cipher;
@@ -28,3 +29,4 @@ public class EcbInSymmCryptoABHCase1 {
         bc.go();
     }
 }
+*/
