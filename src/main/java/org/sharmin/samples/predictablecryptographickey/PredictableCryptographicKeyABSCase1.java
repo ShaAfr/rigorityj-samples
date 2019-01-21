@@ -32,7 +32,7 @@ public class PredictableCryptographicKeyABSCase1 {
 
 class Crypto {
     Cipher cipher;
-    String algoSpec = "AES/CBC/NoPadding";
+    String algoSpec = "AES/CBC/PKCS5Padding";
     String algo = "AES";
     String defaultKey;
     public Crypto(String defkey) throws NoSuchPaddingException, NoSuchAlgorithmException {
