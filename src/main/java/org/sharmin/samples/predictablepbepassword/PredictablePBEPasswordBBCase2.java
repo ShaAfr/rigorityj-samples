@@ -4,23 +4,21 @@ import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.PBEParameterSpec;
 import java.security.SecureRandom;
 
-public class PredictablePBEPasswordABICase1 {
+public class PredictablePBEPasswordBBCase2 {
     private PBEKeySpec pbeKeySpec = null;
     private PBEParameterSpec pbeParamSpec = null;
 
     public static void main(String [] args){
-        PredictablePBEPasswordABICase1 ckp = new PredictablePBEPasswordABICase1();
-        String password = "sagar";
-        ckp.key(password);
+        PredictablePBEPasswordBBCase2 ckp = new PredictablePBEPasswordBBCase2();
+        ckp.key();
     }
-    public void key(String password) {
+    public void key() {
+        char [] defaultKey = {'s'};
         byte [] salt = new byte[16];
         SecureRandom sr = new SecureRandom();
         sr.nextBytes(salt);
         int iterationCount = 11010;
         int keyLength = 16;
-        pbeKeySpec = new PBEKeySpec(password.toCharArray(),salt,iterationCount,keyLength);
+        pbeKeySpec = new PBEKeySpec(defaultKey,salt,iterationCount,keyLength);
     }
-
 }
-

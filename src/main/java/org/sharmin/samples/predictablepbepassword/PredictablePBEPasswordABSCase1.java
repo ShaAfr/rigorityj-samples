@@ -2,6 +2,7 @@ package org.sharmin.samples.predictablepbepassword;
 
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.PBEParameterSpec;
+import java.security.SecureRandom;
 
 public class PredictablePBEPasswordABSCase1 {
     CryptoPredictablePBE crypto;
@@ -28,6 +29,11 @@ class CryptoPredictablePBE {
         if(passedPassword.isEmpty()){
             passedPassword = defPassword;
         }
-        pbeKeySpec = new PBEKeySpec(passedPassword.toCharArray());
+        byte [] salt = new byte[16];
+        SecureRandom sr = new SecureRandom();
+        sr.nextBytes(salt);
+        int iterationCount = 11010;
+        int keyLength = 16;
+        pbeKeySpec = new PBEKeySpec(passedPassword.toCharArray(),salt,iterationCount,keyLength);
     }
 }

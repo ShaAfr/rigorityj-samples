@@ -27,3 +27,4 @@ public class StaticSaltsABICase2 {
         pbeParamSpec = new PBEParameterSpec(new byte[]{Byte.parseByte(salt.toString())}, count);
     }
 }
+

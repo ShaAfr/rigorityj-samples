@@ -14,7 +14,12 @@ public class PredictablePBEPasswordBBCase1 {
     }
     public void key() {
         String defaultKey = "saagar";
-        pbeKeySpec = new PBEKeySpec(defaultKey.toCharArray());
+        byte [] salt = new byte[16];
+        SecureRandom sr = new SecureRandom();
+        sr.nextBytes(salt);
+        int iterationCount = 11010;
+        int keyLength = 16;
+        pbeKeySpec = new PBEKeySpec(defaultKey.toCharArray(),salt,iterationCount,keyLength);
     }
 
 }

@@ -2,6 +2,7 @@ package org.sharmin.samples.predictablepbepassword;
 
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.PBEParameterSpec;
+import java.security.SecureRandom;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,6 +22,11 @@ public class PredictablePBEPasswordABHCase2 {
         ckp.key(key);
     }
     public void key(String key) {
-        pbeKeySpec = new PBEKeySpec(key.toCharArray());
+        byte [] salt = new byte[16];
+        SecureRandom sr = new SecureRandom();
+        sr.nextBytes(salt);
+        int iterationCount = 11010;
+        int keyLength = 16;
+        pbeKeySpec = new PBEKeySpec(key.toCharArray(),salt,iterationCount,keyLength);
     }
 }

@@ -15,6 +15,10 @@ public class PredictablePBEPasswordCorrected {
     public void key() {
         SecureRandom random = new SecureRandom();
         String password = String.valueOf(random.ints());
-        pbeKeySpec = new PBEKeySpec(password.toCharArray());
+        byte [] salt = new byte[16];
+        random.nextBytes(salt);
+        int iterationCount = 11010;
+        int keyLength = 16;
+        pbeKeySpec = new PBEKeySpec(password.toCharArray(),salt,iterationCount,keyLength);
     }
 }

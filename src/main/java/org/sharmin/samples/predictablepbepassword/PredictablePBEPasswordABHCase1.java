@@ -17,6 +17,11 @@ public class PredictablePBEPasswordABHCase1 {
         ckp.key(keyBytes);
     }
     public void key(byte [] keyBytes) {
-        pbeKeySpec = new PBEKeySpec(new String(keyBytes).toCharArray());
+        byte [] salt = new byte[16];
+        SecureRandom sr = new SecureRandom();
+        sr.nextBytes(salt);
+        int iterationCount = 11010;
+        int keyLength = 16;
+        pbeKeySpec = new PBEKeySpec(new String(keyBytes).toCharArray(),salt,iterationCount,keyLength);
     }
 }
