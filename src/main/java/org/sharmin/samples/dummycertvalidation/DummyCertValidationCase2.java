@@ -13,7 +13,6 @@ public class DummyCertValidationCase2 implements X509TrustManager {
 
     @Override
     public void checkServerTrusted(X509Certificate[] x509Certificates, String s) throws CertificateException {
-        LOG.log(Level.SEVERE, s);
     }
 
     @Override
