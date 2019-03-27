@@ -28,7 +28,7 @@ public class InsecureAsymmetricCipherABICase1 {
     public static void main (String [] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, IOException, IllegalBlockSizeException, BadPaddingException, ClassNotFoundException {
         InsecureAsymmetricCipherABICase1 bc = new InsecureAsymmetricCipherABICase1();
         KeyPairGenerator kgp = KeyPairGenerator.getInstance("RSA");
-        //kgp.initialize(1024);
+        kgp.initialize(1024);
         KeyPair kp = kgp.generateKeyPair();
         bc.go(kgp,kp);
     }

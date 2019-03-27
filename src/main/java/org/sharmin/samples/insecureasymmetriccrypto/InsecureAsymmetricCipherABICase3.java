@@ -33,7 +33,7 @@ public class InsecureAsymmetricCipherABICase3 {
 
     public static void main (String [] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, IOException, IllegalBlockSizeException, BadPaddingException, ClassNotFoundException {
         KeyPairGenerator kgp = KeyPairGenerator.getInstance("RSA");
-        //kgp.initialize(1024);
+        kgp.initialize(1024);
         KeyPair kp = kgp.generateKeyPair();
         method2(kgp,kp);
     }
