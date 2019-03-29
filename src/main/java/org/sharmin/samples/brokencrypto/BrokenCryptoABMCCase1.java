@@ -8,6 +8,7 @@ public class BrokenCryptoABMCCase1 {
     public static void main (String [] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         BrokenCryptoABMC1 bc = new BrokenCryptoABMC1();
         String crypto = "DES/ECB/PKCS5Padding";
-        bc.go(crypto);
+        String cryptokey = "DES";
+        bc.go(crypto,cryptokey);
     }
 }

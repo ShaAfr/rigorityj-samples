@@ -8,13 +8,17 @@ import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
 
 public class InsecureAsymmetricCipherABICase3 {
-    public static void method2(KeyPairGenerator kgp, KeyPair kp) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IOException, IllegalBlockSizeException, BadPaddingException, ClassNotFoundException {
-        KeyPair kp2 = kp;
-        KeyPairGenerator kpg2 = kgp;
-        method1(kpg2,kp2);
+    public static void method2(int k) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IOException, IllegalBlockSizeException, BadPaddingException, ClassNotFoundException {
+        int keySize = k;
+        method1(keySize);
     }
 
-    public static void method1(KeyPairGenerator kgp, KeyPair kp) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IOException, IllegalBlockSizeException, BadPaddingException, ClassNotFoundException {
+    public static void method1(int key) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IOException, IllegalBlockSizeException, BadPaddingException, ClassNotFoundException {
+
+        KeyPairGenerator kgp = KeyPairGenerator.getInstance("RSA");
+        kgp.initialize(key);
+        KeyPair kp = kgp.generateKeyPair();
+
 
         Cipher cipher = Cipher.getInstance("RSA");
         cipher.init(Cipher.ENCRYPT_MODE, kp.getPublic());
@@ -32,9 +36,9 @@ public class InsecureAsymmetricCipherABICase3 {
     }
 
     public static void main (String [] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, IOException, IllegalBlockSizeException, BadPaddingException, ClassNotFoundException {
-        KeyPairGenerator kgp = KeyPairGenerator.getInstance("RSA");
-        kgp.initialize(1024);
-        KeyPair kp = kgp.generateKeyPair();
-        method2(kgp,kp);
+        int key = 1024;
+        method2(key);
+
+
     }
 }

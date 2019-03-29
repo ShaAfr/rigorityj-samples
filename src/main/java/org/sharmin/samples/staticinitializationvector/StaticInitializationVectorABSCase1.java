@@ -11,10 +11,11 @@ import java.security.NoSuchAlgorithmException;
 
 public class StaticInitializationVectorABSCase1 {
     CryptoStaticIV1 crypto;
-    public StaticInitializationVectorABSCase1() {
+    public StaticInitializationVectorABSCase1() throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException {
         byte [] bytes = "abcde".getBytes();
         IvParameterSpec ivSpec = new IvParameterSpec(bytes);
         crypto = new CryptoStaticIV1(ivSpec);
+        crypto.method1(null);
     }
 }
 
@@ -25,10 +26,9 @@ class CryptoStaticIV1 {
         defIVSpec = ivSpec;
     }
 
-    public void encrypt(IvParameterSpec passedIVSpec) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidAlgorithmParameterException {
+    public void method1(IvParameterSpec passedIVSpec) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidAlgorithmParameterException {
 
         passedIVSpec = defIVSpec;
-
 
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         SecretKey key = keyGen.generateKey();

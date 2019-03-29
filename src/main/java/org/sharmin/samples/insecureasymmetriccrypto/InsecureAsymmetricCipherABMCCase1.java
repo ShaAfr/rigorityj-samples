@@ -13,11 +13,8 @@ import java.security.NoSuchAlgorithmException;
 public class InsecureAsymmetricCipherABMCCase1 {
     public static void main (String [] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, IOException, IllegalBlockSizeException, BadPaddingException, ClassNotFoundException {
         InsecureAsymmetricCipherABMC1 bc = new InsecureAsymmetricCipherABMC1();
-        KeyPairGenerator kgp = KeyPairGenerator.getInstance("RSA");
-        kgp.initialize(1024);
-        KeyPair kp = kgp.generateKeyPair();
-        Cipher cipher = Cipher.getInstance("RSA");
-        Cipher dec = Cipher.getInstance("RSA");
-        bc.go(kgp,kp,cipher,dec);
+        int keySize = 1024;
+
+        bc.go(keySize);
     }
 }

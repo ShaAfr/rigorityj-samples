@@ -8,20 +8,20 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 public class BrokenCryptoABICase11 {
-    public static void method2(String c, KeyGenerator keyGen) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
+    public static void method2(String c, String key) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         String cryptoAlgo = c;
-        method1(cryptoAlgo,keyGen);
+        method1(cryptoAlgo,key);
     }
-    public static void method1(String crypto,KeyGenerator keyGen) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-
+    public static void method1(String crypto,String cryptoKey) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
+        KeyGenerator keyGen = KeyGenerator.getInstance(cryptoKey);
         SecretKey key = keyGen.generateKey();
         Cipher cipher = Cipher.getInstance(crypto);
         cipher.init(Cipher.ENCRYPT_MODE, key);
     }
 
     public static void main (String [] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-        KeyGenerator keyGen = KeyGenerator.getInstance("DES");
+        String key = "DES";
         String crypto = "DES/ECB/PKCS5Padding";
-        method2(crypto,keyGen);
+        method2(crypto,key);
     }
 }

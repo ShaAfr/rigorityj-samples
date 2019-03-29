@@ -1,13 +1,10 @@
 package org.sharmin.samples.predictablekeystorepassword;
 
-import javax.crypto.spec.SecretKeySpec;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 
 public class PredictableKeyStorePasswordABICase2 {

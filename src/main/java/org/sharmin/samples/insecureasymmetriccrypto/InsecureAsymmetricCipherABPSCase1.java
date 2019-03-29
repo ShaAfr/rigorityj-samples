@@ -6,23 +6,19 @@ import java.security.*;
 public class InsecureAsymmetricCipherABPSCase1 {
     public void go(int choice) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IOException, IllegalBlockSizeException, BadPaddingException, ClassNotFoundException {
         KeyPairGenerator kgp = KeyPairGenerator.getInstance("RSA");
-        int keysize = 1024;
+
+        int keysize;
+        if (choice>1)
+            keysize = 2048;
+        else
+            keysize = 1024;
+
         kgp.initialize(keysize);
         KeyPair kp = kgp.generateKeyPair();
 
-        KeyGenerator keyGen = KeyGenerator.getInstance("AES");
-        SecretKey key = keyGen.generateKey();
-
 
         Cipher cipher = Cipher.getInstance("RSA");
-
-        if(choice>1)
-            cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-
-        if (choice>1)
-            cipher.init(Cipher.ENCRYPT_MODE, key);
-        else
-            cipher.init(Cipher.ENCRYPT_MODE, kp.getPublic());
+        cipher.init(Cipher.ENCRYPT_MODE, kp.getPublic());
 
         //encrypting
         String myMessage = new String("Secret Message");
