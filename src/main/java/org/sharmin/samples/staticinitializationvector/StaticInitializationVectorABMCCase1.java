@@ -10,7 +10,7 @@ public class StaticInitializationVectorABMCCase1 {
     public static void main (String [] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, InvalidAlgorithmParameterException {
         StaticInitializationVectorABMC1 siv = new StaticInitializationVectorABMC1();
         byte [] bytes = "abcde".getBytes();
-        IvParameterSpec ivSpec = new IvParameterSpec(bytes);
-        siv.go(ivSpec);
+
+        siv.go(bytes);
     }
 }
